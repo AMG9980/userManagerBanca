@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Role{% endblock %}
+
+{% block body %}
+<div class="full-screen-container" style=" margin-left: 300px;margin-right: 30px;">
+    <div class="full-screen-container">
+        <h1 class="bold-red-text">Show Role</h1>
+    </div>
+    <h1 class="bold-red-text">Show Role</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ role.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ role.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_role_index') }}" class="btn btn-success btn-lg rounded-pill"><i class="bi bi-arrow-return-left " aria-hidden="true"></i>back to list</a>
+
+    <form method="post" action="{{ path('app_role_delete', {'id': role.id}) }}" style="display:
+inline-block" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ role.id) }}">
+        <button class="btn btn-danger btn-lg rounded-pill"><i class="bi bi-trash " aria-hidden="true"></i> Delete</button>
+    </form>
+{% endblock %}

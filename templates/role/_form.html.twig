@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+{{ form_row(form.nom, {'attr': {'class': 'form-control', 'style': 'width: 400px;'}}) }}
+<br>
+    <button class="btn btn-primary rounded-pill">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
